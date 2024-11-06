@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Narrative</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+  
+      body {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* CSS for header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3d3b33;
+}
+
+.header .logo {
+  font-size: 25px;
+  font-family: "Sriracha", cursive;
+  color: #dfdfdf;
+  text-decoration: none;
+  margin-left: 30px;
+}
+
+.nav-items {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #312824;
+  margin-right: 20px;
+ 
+}
+
+.nav-items a {
+  text-decoration: none;
+  color: #cecece;
+  padding: 35px 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.main-words h2 {
+      font-size: 40px;
+      color: #e8e8e8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-transform: uppercase;
+      margin: 0;
+      background-color: #1a1a1a;
+      padding: 10px;
+    }
+
+    .main-words h3 {
+      font-size: 20px;
+      color: #252525;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      background-color: #cccccc;
+      border-bottom: 2px solid #aaaaaa;
+    }
+    .chart {
+      padding: 10px;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.5) 100%), url("https://i.pinimg.com/originals/19/0d/61/190d614be49739ba5a27a85aa63c5d17.jpg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      font-size:  16px;
+      color: white;
+    }
+  
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #3d3b33;
+      padding: 40px 80px;
+    }
+
+    .footer .copy {
+      color: #fff;
+    }
+
+    .bottom-links {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 40px 0;
+    }
+
+    .bottom-links .links {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .bottom-links .links span {
+      font-size: 20px;
+      color: #fff;
+      text-transform: uppercase;
+      margin: 10px 0;
+    }
+
+    .bottom-links .links a {
+      text-decoration: none;
+      color: #a1a1a1;
+      padding: 10px 20px;
+    }
+
+   
+    
+    .graph {
+      
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      
+      background-color: #cccccc;
+      
+    }
+    tr {
+      justify-content: center;
+      align-items: center;
+      background-color: #f3f3f3;
+    }
+
+    .table {
+      
+      border: 2px solid #333333;
+      padding: 12px;
+    }
+  </style>
+  </head>
+  <body>
+    <header class="header">
+      <a href="#" class="logo">Michael's Dark Souls Website</a>
+      <nav class="nav-items">
+        <a href="mobileDataNarritive1.00.html">Home Narrative</a>
+        <a href="BossSouls.html">Boss Souls</a>
+        <a href="index.html">Tail Weapons</a>
+        <a href="covenants.html">Covenant Rewards</a>
+        
+      </nav>
+    </header>
+
+    <main class="main-words">
+        <div class="container text-center">
+            <div class="row">
+                <div class="col-12">
+                  <h2 class="">Boss Souls</h1>
+                  
+<div class="graph">
+    <div class="table-responsive">
+        <table class="table" border="1">
+            <tr> 
+                <th>Boss Soul</th>
+                <th>Boss</th>
+                <th>Location</th>
+                <th>Consumed Souls</th>
+                <th>Weapons</th>
+            </tr>
+            <tr> 
+                <td>Soul of the Moonlight Butterfly</td>
+                <td>Moonlight Butterfly</td>
+                <td>Darkroot Garden</td>
+                <td>1,200</td>
+                <td>Moonlight Butterfly Horn / Crystal Ring Shield</td>
+            </tr>
+            <tr> 
+                <td>Soul of Quelaag</td>
+                <td>Chaos Witch Quelaag</td>
+                <td>Blight Town</td>
+                <td>8,000</td>
+                <td>Quelaag's Furysword / Chaos Blade</td>
+            </tr>
+            <tr> 
+                <td>Core of an Iron Golem</td>
+                <td>Iron Golem</td>
+                <td>Sen's Fortress</td>
+                <td>12,000</td>
+                <td>Golem Axe / Dragon Bone Fist</td>
+            </tr>
+            <tr> 
+                <td>Soul of Ornstein</td>
+                <td>Dragon Slayer Ornstein</td>
+                <td>Anor Londo</td>
+                <td>12,000</td>
+                <td>Dragonslayer Spear</td>
+            </tr>
+            <tr> 
+              <td>Soul of Smough</td>
+              <td>Executioner Smough</td>
+              <td>Anor Londo</td>
+              <td>12,000</td>
+              <td>Smough's Hammer</td>
+          </tr>
+          <tr> 
+            <td>Soul of Sif</td>
+            <td>Great Wolf Sif</td>
+            <td>Darkroot Garden</td>
+            <td>16,000</td>
+            <td>Greatsword of Artorias / Greatshield of Artorias</td>
+        </tr>
+        <tr> 
+          <td>Soul of Soul of Gwyndolin</td>
+          <td>Dark Sun Qwyndolin</td>
+          <td>Anor Londo</td>
+          <td>16,000</td>
+          <td>Darkmoon Bow / Tin Darkmoon Catalyst</td>
+      </tr>
+      <tr> 
+        <td>Soul of Priscilla</td>
+        <td>Crossbreed Priscilla</td>
+        <td>Painted World</td>
+        <td>12,000</td>
+        <td>Lifehunt Scythe</td>
+    </tr>
+    <tr> 
+      <td>Soul of Gwyn, Lord of Cinder</td>
+      <td>Gwyn, Lord of Cinder</td>
+      <td>Kiln of the First Flame</td>
+      <td>20,000</td>
+      <td>Great Lord Greatsword</td>
+  </tr>
+  <tr> 
+    <td>Soul of Artorias</td>
+    <td>Artorias, The Abyss Walker</td>
+    <td>Oolacile</td>
+    <td>16,000</td>
+    <td>Abyss Greatsword</td>
+      </tr>
+  <tr> 
+    <td>Soul of Manus</td>
+    <td>Manus Father of the Abyss</td>
+    <td>Lower Oolacile</td>
+    <td>18,000</td>
+    <td>Manus Catalyst</td>
+      </tr>
+      
+        </table>
+        
+    </div>
+</div>
+</div>
+                
+</div>
+<h2>Boss Relationship Chart</h2>
+<h3>This chart maps out which bosses are connected in game and in the lore.</h3>
+
+<div class="chart">
+<div id="my_dataviz"></div>
+
+<script>
+
+
+// set the dimensions and margins of the graph
+var margin = { top: 20, right: 30, bottom: 40, left: 40 },
+    aspectRatio = 2 / 1, // Adjust the aspect ratio as needed
+    container = d3.select("#my_dataviz"),
+    containerWidth = parseInt(container.style("width")),
+    width = containerWidth - margin.left - margin.right,
+    height = width / aspectRatio - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var svg = container
+    .append("svg")
+    .attr("viewBox", "0 0 " + (width + margin.left + margin.right) + " " + (height + margin.top + margin.bottom))
+    .attr("preserveAspectRatio", "xMidYMid meet")
+    .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    
+
+
+var graphData = {
+"nodes": [
+{ "id": 1, "name": "Moonlight Butterfly" },
+{ "id": 2, "name": "Great Wolf Sif" },
+{ "id": 3, "name": "Iron Golem" },
+{ "id": 4, "name": "Ornstein & Smough" },
+{ "id": 5, "name": "Dark Sun Qwyndolin" },
+{ "id": 6, "name": "Crossbreed Pricilla" },
+{ "id": 7, "name": "Chaos Witch Qualaag" },
+{ "id": 8, "name": "Gywn, Lord of Cinder" },
+{ "id": 9, "name": "Artorias the Abyss Walker" },
+{ "id": 10, "name": "Manus, Father of the Abyss" }
+
+],
+"links": [
+{ "source": 1, "target": 2 },
+{ "source": 2, "target": 9 },
+{ "source": 2, "target": 10 },
+{ "source": 3, "target": 4 },
+{ "source": 4, "target": 5 },
+{ "source": 4, "target": 6 },
+{ "source": 4, "target": 8 },
+{ "source": 4, "target": 9 },
+{ "source": 5, "target": 8 },
+{ "source": 6, "target": 1 },
+{ "source": 8, "target": 7 },
+{ "source": 8, "target": 9 },
+{ "source": 9, "target": 10 }
+]
+};
+
+var colors = d3.schemeCategory10;
+
+// Initialize the links
+var link = svg
+  .selectAll("line")
+  .data(graphData.links)
+  .enter()
+  .append("line")
+  .style("stroke", "#aaa");
+
+// Initialize the nodes
+var node = svg
+  .selectAll("g.node")
+  .data(graphData.nodes)
+  .enter()
+  .append("g")
+  .attr("class", "node");
+
+// Append circles for nodes with different colors
+node.append("circle")
+  .attr("r", 55)  // Adjust the radius as needed
+  .style("fill", function (d, i) { return colors[i % colors.length]; });
+
+  
+
+// Append text for node labels
+node.append("text")
+  .attr("text-anchor", "middle")
+  .attr("dy", ".35em")
+  .style("fill", "white")
+  .text(function (d) { return d.name; });
+  
+
+// Let's list the force we wanna apply on the network
+var simulation = d3.forceSimulation(graphData.nodes)
+  .force("link", d3.forceLink()
+    .id(function (d) { return d.id; })
+    .links(graphData.links)
+  )
+  .force("charge", d3.forceManyBody().strength(-2500)) // Adjust the charge strength as needed
+  .force("center", d3.forceCenter(width / 2, height / 2))
+  .on("end", ticked);
+
+// This function is run at each iteration of the force algorithm, updating the nodes position.
+function ticked() {
+  link
+    .attr("x1", function (d) { return d.source.x; })
+    .attr("y1", function (d) { return d.source.y; })
+    .attr("x2", function (d) { return d.target.x; })
+    .attr("y2", function (d) { return d.target.y; });
+
+  node
+    .attr("transform", function (d) { return "translate(" + d.x + "," + d.y + ")"; });
+}
+</script>
+</div>
+
+
+
+<footer class="footer">
+  <div class="copy">
+    <h4>All of this was Possible due to:</h4>
+    <p>John Souls</p>
+    <p>Chick-Fil-A</p>
+    <p>Nova</p>
+    <p>Audrey</p>
+    <p>Me</p>
+  </div>
+  
+  <div class="bottom-links">
+    <div class="links">
+      <span>More Info</span>
+      <a href="https://darksouls.wiki.fextralife.com/Boss+Soul+Weapons">Boss Souls Wiki</a>
+      <a href="https://darksouls.fandom.com/wiki/Category:Dark_Souls:_Tail_Weapons">Tail Weapons Wiki</a>
+      <a href="https://darksouls.wiki.fextralife.com/covenants">Covenants Wiki</a>
+    </div>
+    
+  
+    
+  </div>
+</footer>
+</main>
+</body>
+</html>

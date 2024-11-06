@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en"></html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Narrative</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://d3js.org/d3.v4.js"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Sriracha&display=swap');
+  
+      body {
+  margin: 0;
+  box-sizing: border-box;
+}
+.intro {
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #aaaaaa;
+  padding: 10px;
+}
+/* CSS for header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #3d3b33;
+}
+
+.header .logo {
+  font-size: 25px;
+  font-family: "Sriracha", cursive;
+  color: #dfdfdf;
+  text-decoration: none;
+  margin-left: 30px;
+}
+
+.nav-items {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #312824;
+  margin-right: 20px;
+ 
+}
+
+.nav-items a {
+  text-decoration: none;
+  color: #cecece;
+  padding: 35px 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+  
+.footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #3d3b33;
+      padding: 40px 80px;
+    }
+
+    .footer .copy {
+      color: #fff;
+    }
+
+    .bottom-links {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 40px 0;
+    }
+
+    .bottom-links .links {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 40px;
+    }
+
+    .bottom-links .links span {
+      font-size: 20px;
+      color: #fff;
+      text-transform: uppercase;
+      margin: 10px 0;
+    }
+
+    .bottom-links .links a {
+      text-decoration: none;
+      color: #a1a1a1;
+      padding: 10px 20px;
+    }
+    .videos {
+        display: flex;
+  justify-content: space-around;
+  align-items: center;
+    }
+    .title {
+      background-color: #cccccc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 80px;
+      border-top: 2px solid #aaaaaa;
+      border-bottom: 2px solid #aaaaaa;
+    }
+    .title-text h2 {
+      font-size: 20px;
+      color: #3a332e;
+      
+      margin: 0;
+      padding: 10px;
+    }
+
+    .title-text p {
+      font-size: 15px;
+      color: #252525;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+
+  </style>
+  </head>
+
+<body>
+    <header class="header">
+        <a href="#" class="logo">Michael's Dark Souls Website</a>
+        <nav class="nav-items">
+          <a href="mobileDataNarritive1.00.html">Home Narrative</a>
+          <a href="BossSouls.html">Boss Souls</a>
+          <a href="index.html">Tail Weapons</a>
+          <a href="covenants.html">Covenant Rewards</a>
+          
+        </nav>
+        </header>
+        <main>
+            <div class="intro">
+              <h1>Covenants and Their Rewards</h1>
+              <i class="fas fa-sun"></i>
+             
+              
+              
+            </div>
+<div class="title">
+    <div class="title-text">
+    
+    <h2>Co-op Covenants focus on friendly interactions between players, where after defeating a boss both players are rewarded. </h2>
+<div class="videos">
+    <iframe 
+    width="800"
+    height="450"
+    src="https://www.youtube.com/embed/55xvtpNFqDY"
+    frameborder="0"
+    allowfullscreen
+  ></iframe>
+
+</div>
+<h2>PvP Covenants are all about invasions, where one player will join another's world to hunt them down for a reward.</h2>
+
+<p>The Yellow boxes represent the Co-op covenants, while every other box is a PvP covenant with unique rewards assosiated with them.</p>
+</div>
+
+</div>
+
+            </main>
+
+            <div id="my_dataviz"></div>
+            <script>
+               var margin = { top: 20, right: 30, bottom: 20, left: 40 },
+    aspectRatio = 2 / 1, // Adjust the aspect ratio as needed
+    container = d3.select("#my_dataviz"),
+    containerWidth = parseInt(container.style("width")),
+    width = containerWidth - margin.left - margin.right,
+    height = width / aspectRatio - margin.top - margin.bottom;
+
+// append the svg object to the body of the page
+var svg = container
+    .append("svg")
+    .attr("viewBox", "0 0 " + (width + margin.left + margin.right) + " " + (height + margin.top + margin.bottom))
+    .attr("preserveAspectRatio", "xMidYMid meet")
+    .append("g")
+    .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+    
+                
+                // New data
+                var newData = {
+                  "children": [
+                    {"name": "boss1", "children": [
+                      {"name": "Warriors of Sunlight", "group": "A", "value": 20, "colname": "level3"},
+                      {"name": "Princess Guard", "group": "A", "value": 20, "colname": "level3"},
+                      {"name": "Way of White", "group": "A", "value": 20, "colname": "level3"}
+                    ], "colname": "level2"},
+                    {"name": "boss2", "children": [
+                      {"name": "DarkWrath", "group": "B", "value": 25, "colname": "level3"},
+                      {"name": "Dark Hand", "group": "B", "value": 10, "colname": "level3"},
+                      {"name": "Darksword", "group": "B", "value": 10, "colname": "level3"}
+                    ], "colname": "level2"},
+                    {"name": "boss4", "children": [
+                      {"name": "Path of the Dragon", "group": "C", "value": 15, "colname": "level3"},
+                      {"name": "Dragon Head Stone", "group": "C", "value": 15, "colname": "level3"},
+                      {"name": "Dragon Torso Stone", "group": "C", "value": 15, "colname": "level3"}
+                    ], "colname": "level2"},
+                    {"name": "boss3", "children": [
+                      {"name": "Forest Hunter", "group": "D", "value": 20, "colname": "level3"}
+                    ], "colname": "level2"},
+                    {"name": "boss5", "children": [
+                      {"name": "Blade of the DarkMoon", "group": "E", "value": 20, "colname": "level3"}
+                    ], "colname": "level2"},
+                    {"name": "boss6", "children": [
+                      {"name": "Gravelord Servant", "group": "F", "value": 20, "colname": "level3"},
+                      {"name": "Gravelord Sword", "group": "F", "value": 13, "colname": "level3"}
+                    ], "colname": "level2"},
+                    {"name": "boss7", "children": [
+                      {"name": "Chaos Servant", "group": "G", "value": 20, "colname": "level3"}
+                    ], "colname": "level2"}
+                  ], "name": "CEO"
+                };
+                
+                // Give the data to this cluster layout:
+                var root = d3.hierarchy(newData).sum(function(d) { return d.value; });
+                
+                // Then d3.treemap computes the position of each element of the hierarchy
+                d3.treemap()
+                    .size([width, height])
+                    .padding(2)
+                    (root);
+                
+                // use this information to add rectangles:
+                svg.selectAll("rect")
+                    .data(root.leaves())
+                    .enter()
+                    .append("rect")
+                    .attr('x', function(d) { return d.x0; })
+                    .attr('y', function(d) { return d.y0; })
+                    .attr('width', function(d) { return d.x1 - d.x0; })
+                    .attr('height', function(d) { return d.y1 - d.y0; })
+                    .style("stroke", "black")
+                    .style("fill", function(d) { return getColorByGroup(d.data.group); });
+                
+                // and to add the text labels
+                svg.selectAll("text")
+                    .data(root.leaves())
+                    .enter()
+                    .append("text")
+                    .attr("x", function(d) { return d.x0 + 5; })    // +10 to adjust position (more right)
+                    .attr("y", function(d) { return d.y0 + 20; })    // +20 to adjust position (lower)
+                    .text(function(d) { return d.data.name; })
+                    .attr("font-size", "15px")
+                    .attr("fill", "black");
+
+                    function getColorByGroup(group) {
+    // You can define your own color mapping here
+    var colorMap = {
+        "A": "gold",
+        "B": "navy",
+        "C": "grey",
+        "D": "green",
+        "E": "violet",
+        "F": "chocolate",
+        "G": "maroon"
+        // Add more groups and colors as needed
+    };
+    return colorMap[group] || "slateblue"; // Default color for unknown groups
+}
+                </script>
+                
+
+
+
+
+
+
+
+
+                <footer class="footer">
+                    <div class="copy">
+                      <h4>All of this was Possible due to:</h4>
+                      <p>John Souls</p>
+                      <p>Chick-Fil-A</p>
+                      <p>Nova</p>
+                      <p>Audrey</p>
+                      <p>Me</p>
+                    </div>
+                    
+                    <div class="bottom-links">
+                      <div class="links">
+                        <span>More Info</span>
+                        <a href="https://darksouls.wiki.fextralife.com/Boss+Soul+Weapons">Boss Souls Wiki</a>
+                        <a href="https://darksouls.fandom.com/wiki/Category:Dark_Souls:_Tail_Weapons">Tail Weapons Wiki</a>
+                        <a href="https://darksouls.wiki.fextralife.com/covenants">Covenants Wiki</a>
+                      </div>
+                      
+      
+    
+  </footer>
+</body>
+
+
+  </html>
